@@ -4,6 +4,7 @@ import CharacterMini from './CharacterMini';
 import './Characters.css';
 import Stack from 'react-bootstrap/Stack';
 import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 
 export default function Characters() {
@@ -11,26 +12,32 @@ export default function Characters() {
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get('https://rickandmortyapi.com/api/character/');
-      setCharacters(res.data.results);
+      let lien = 'https://rickandmortyapi.com/api/character/';
+      while (lien){
+        const {data} = await axios.get(lien);
+        setCharacters(old => [...old, ...data.results]);
+        lien = data.info.next;
+      }
     }
     fetchData();
-  }, []);
 
+  }, []);
   return (
     <Container fluid>
         <Stack direction="horizontal">
         {characters.map(character => (
             <Row>
-            <CharacterMini
-                id={character.id} 
-                name={character.name} 
-                status={character.status} 
-                gender={character.gender}
-                type={character.type}
-                origin={{name: character.origin.name, url: character.origin.url }}
-                image={character.image}
-            /> 
+              <Col>
+                <CharacterMini
+                    id={character.id} 
+                    name={character.name} 
+                    status={character.status} 
+                    gender={character.gender}
+                    type={character.type}
+                    origin={{name: character.origin.name, url: character.origin.url }}
+                    image={character.image}
+                /> 
+              </Col>
             </Row>
         ))}
         baba

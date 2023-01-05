@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Characters.css';
+import { useParams } from "react-router-dom";
 
-export default function Character({id}) {
+
+export default function Character() {
   const [character, setCharacter] = useState([]);
+  const {characterId} = useParams()
 
   useEffect(() => {
     async function fetchData() {
-      const res = await axios.get('https://rickandmortyapi.com/api/character/1');
+      const res = await axios.get(`https://rickandmortyapi.com/api/character/${characterId}`);
       setCharacter(res.data);
     }
     fetchData();
