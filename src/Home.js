@@ -1,6 +1,5 @@
 
 import Header from "./Header"
-import FiveCharacterMini from "./FiveCharacterMini"
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CharacterMini from './CharacterMini';
@@ -12,7 +11,7 @@ import "./Home.css"
 export default function Home(){
 
   const [characters, setCharacters] = useState([]);
-  const [loading, setLoading] = useState([]);
+
 
   useEffect(() => {
     async function fetchData() {
