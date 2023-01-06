@@ -6,6 +6,7 @@ import Row from 'react-bootstrap/Row';
 import Container from 'react-bootstrap/Container'
 import EpisodeMini from './EpisodeMini';
 import { Table } from 'react-bootstrap';
+import Header from './Header';
 
 export default function Episodes() {
   const [episodes, setEpisodes] = useState([]);
@@ -23,6 +24,10 @@ export default function Episodes() {
   }, []);
 
   return (
+    <div>
+      <div>
+        <Header />
+      </div>
     <Container fluid>
         <Table striped bordered hover>
         <thead>
@@ -44,5 +49,6 @@ export default function Episodes() {
         </tbody>
         </Table>
     </Container>
+    </div>
   );
 }

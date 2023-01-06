@@ -21,17 +21,17 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-        path: "characters",
+        path: "/characters/",
         element: <Characters />,
   },
   {
-        path: "character/:characterId",
+        path: "/character/:characterId/",
         element: <Character/>,
   },
   {
-        path: "episodes",
+        path: "/episodes/",
         element: <Episodes />,
-  },        
+  },   
   
 ]);
 

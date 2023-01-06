@@ -6,6 +6,7 @@ import Stack from 'react-bootstrap/Stack';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
+import Header from './Header';
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
@@ -23,10 +24,13 @@ export default function Characters() {
 
   }, []);
   return (
+    <div>
+      <div>
+        <Header />
+      </div>
     <Container fluid>
-        <Stack direction="horizontal">
-        {characters.map(character => (
-            <Row>
+      <Row>
+        {characters.map(character => (  
               <Col>
                 <CharacterMini
                     id={character.id} 
@@ -37,11 +41,10 @@ export default function Characters() {
                     origin={{name: character.origin.name, url: character.origin.url }}
                     image={character.image}
                 /> 
-              </Col>
-            </Row>
+              </Col>  
         ))}
-        baba
-        </Stack>
+      </Row>
     </Container>
+    </div>
   );
 }

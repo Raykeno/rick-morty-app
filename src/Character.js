@@ -2,6 +2,10 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Characters.css';
 import { useParams } from "react-router-dom";
+import Card from 'react-bootstrap/Card';
+import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
+import Header from './Header';
 
 
 export default function Character() {
@@ -17,24 +21,20 @@ export default function Character() {
   }, []);
 
   return (
-  <div class="container text-center card">
-    <div class="row">
-      <div class="col">
-        {character.name} <br/>
-        <img src={character.image} width="120" height="120"/> <br/>
-        {character.gender}
+    <div>
+      <div>
+        <Header />
       </div>
-      <div class="col">
-        {character.status}
-      </div>
-      <div class="col">
-        
-      </div>
-      <div class="col">
-        {character.type}
+      <div>
+      <Card style={{ width: '25%'}}>
+      <Card.Img variant="top" src={character.image} alt="Card image cap"/>
+        <Card.Body>
+          <Card.Title>{character.name}</Card.Title>
+          <Card.Subtitle className="mb-2 text-muted">{character.gender} - {character.status}</Card.Subtitle>
+          <Button variant="primary">♡</Button>
+        </Card.Body>
+      </Card>
       </div>
     </div>
-  </div>
-
   );
 }
