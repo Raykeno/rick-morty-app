@@ -8,6 +8,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import "./Home.css"
+import FiveCharacterMini from './FiveCharacterMini.js'
+
 export default function Home(){
 
   const [characters, setCharacters] = useState([]);
@@ -34,7 +36,7 @@ export default function Home(){
         <Row>
         {characters.map(character => (
               <Col>
-                <CharacterMini
+                <FiveCharacterMini
                     id={character.id} 
                     name={character.name} 
                     status={character.status} 

@@ -8,7 +8,6 @@ function CharacterMini({id, name, status, gender, type, origin, image}) {
   <Card.Img variant="top" src={image} alt="Card image cap"/>
     <Card.Body>
       <Card.Title>{name}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">{gender} - {status}</Card.Subtitle>
       <Button variant="primary">♡</Button>
       <Link to={`/character/${id}`} class="btn btn-outline-dark btn-lg m-2">Page Perso</Link>
     </Card.Body>

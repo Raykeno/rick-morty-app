@@ -26,15 +26,17 @@ export default function Character() {
         <Header />
       </div>
       <div>
-      <Card style={{ width: '25%'}}>
+      <Card style={{ width: '25%', margin: '0 auto'}}>
       <Card.Img variant="top" src={character.image} alt="Card image cap"/>
         <Card.Body>
           <Card.Title>{character.name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{character.gender} - {character.status}</Card.Subtitle>
+          
           <Button variant="primary">♡</Button>
         </Card.Body>
       </Card>
       </div>
+
     </div>
   );
 }
