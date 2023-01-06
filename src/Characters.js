@@ -2,31 +2,48 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import CharacterMini from './CharacterMini';
 import './Characters.css';
-import Stack from 'react-bootstrap/Stack';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col'
 import Container from 'react-bootstrap/Container'
 import Header from './Header';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default function Characters() {
   const [characters, setCharacters] = useState([]);
+  const { page } = useParams()
+  const [prev, setPrev] = useState([])
+  const [next, setNext] = useState([])
+  var prevButton = null;
+  var nextButton = null;
 
   useEffect(() => {
-    async function fetchData() {
-      let lien = 'https://rickandmortyapi.com/api/character/';
-      while (lien){
-        const {data} = await axios.get(lien);
-        setCharacters(old => [...old, ...data.results]);
-        lien = data.info.next;
-      }
+    async function fetchData() {    
+      const res = await axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`);
+      setPrev(res.data.info.prev)
+      setNext(res.data.info.next)
+      setCharacters(res.data.results);
     }
     fetchData();
 
   }, []);
+
+  if (prev) {
+    prevButton = <a href={`/characters/${page-1}`} class="btn btn-primary text-light btn-outline-dark btn-lg m-2">Previous</a>
+  }
+
+  if (next) {
+    nextButton = <a href={`/characters/${parseInt(page)+1}`} class="btn btn-primary text-light btn-outline-dark btn-lg m-2">Next</a>
+  }
+
   return (
     <div>
       <div>
         <Header />
+      </div>
+      <div>
+            {prevButton}
+            {nextButton}
       </div>
     <Container fluid>
       <Row>
@@ -48,3 +65,12 @@ export default function Characters() {
     </div>
   );
 }
+
+{/*
+let lien = 'https://rickandmortyapi.com/api/character/';
+      while (lien){
+        const {data} = await axios.get(lien);
+        setCharacters(old => [...old, ...data.results]);
+        lien = data.info.next;
+      } 
+*/}

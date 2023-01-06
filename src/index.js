@@ -7,6 +7,7 @@ import Home from './Home';
 import Characters from './Characters';
 import Episodes from './Episodes';
 import Character from './Character';
+import Episode from './Episode'
 
 import {
   createBrowserRouter,
@@ -20,12 +21,16 @@ const router = createBrowserRouter([
     element: <Home />,
   },
   {
-        path: "/characters/",
+        path: "/characters/:page/",
         element: <Characters />,
   },
   {
         path: "/character/:characterId/",
         element: <Character/>,
+  },
+  {
+    path: "/episode/:episodeId/",
+    element: <Episode/>,
   },
   {
         path: "/episodes/",

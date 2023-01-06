@@ -10,12 +10,16 @@ import Header from './Header';
 
 export default function Character() {
   const [character, setCharacter] = useState([]);
-  const {characterId} = useParams()
+  const [ origin, setOrigin] = useState([]);
+  const [ location, setLocation] = useState([]);
+  const { characterId } = useParams()
 
   useEffect(() => {
     async function fetchData() {
       const res = await axios.get(`https://rickandmortyapi.com/api/character/${characterId}`);
       setCharacter(res.data);
+      setOrigin(res.data.origin)
+      setLocation(res.data.location)
     }
     fetchData();
   }, []);
@@ -31,7 +35,11 @@ export default function Character() {
         <Card.Body>
           <Card.Title>{character.name}</Card.Title>
           <Card.Subtitle className="mb-2 text-muted">{character.gender} - {character.status}</Card.Subtitle>
-          
+          <Card.Text>
+            Comes from : {origin.name}
+            <br/>
+            Located at : {location.name}
+          </Card.Text>
           <Button variant="primary">♡</Button>
         </Card.Body>
       </Card>

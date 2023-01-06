@@ -2,6 +2,7 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 
+
 function CharacterMini({id, name, status, gender, type, origin, image}) {
   return (
   <Card style={{ width: '22rem'}}>

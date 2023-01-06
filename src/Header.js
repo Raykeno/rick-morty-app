@@ -13,7 +13,7 @@ export default function Header() {
             </Navbar.Brand>
             <Nav className="me-auto">
                 <Nav.Link><Link to="/favorites" class="btn btn-dark text-info btn-outline-light btn-lg m-2">Favoris</Link></Nav.Link>
-                <Nav.Link><Link to="/characters" class="btn btn-dark text-info btn-outline-light btn-lg m-2">Personnages</Link></Nav.Link>
+                <Nav.Link><Link to="/characters/1" class="btn btn-dark text-info btn-outline-light btn-lg m-2">Personnages</Link></Nav.Link>
                 <Nav.Link><Link to="/episodes" class="btn btn-dark text-info btn-outline-light btn-lg m-2">Episodes</Link></Nav.Link>
             </Nav>
         </Navbar>
