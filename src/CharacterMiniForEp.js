@@ -21,7 +21,6 @@ function CharacterMini({lien}) {
   <Card.Img variant="top" src={character.image} alt="Card image cap"/>
     <Card.Body>
       <Card.Title>{character.name}</Card.Title>
-      <Card.Subtitle className="mb-2 text-muted">{character.gender} - {character.status}</Card.Subtitle>
       <Button variant="primary">♡</Button>
       <Link to={`/character/${character.id}`} class="btn btn-outline-dark btn-lg m-2">Page Perso</Link>
     </Card.Body>

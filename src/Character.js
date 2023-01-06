@@ -30,7 +30,7 @@ export default function Character() {
         <Header />
       </div>
       <div>
-      <Card style={{ width: '25%', margin: '0 auto'}}>
+      <Card style={{ width: '40%', margin: '0 auto'}}>
       <Card.Img variant="top" src={character.image} alt="Card image cap"/>
         <Card.Body>
           <Card.Title>{character.name}</Card.Title>

@@ -29,7 +29,7 @@ export default function Characters() {
   }, []);
 
   if (prev) {
-    prevButton = <a href={`/characters/${page-1}`} class="btn btn-primary text-light btn-outline-dark btn-lg m-2">Previous</a>
+    prevButton = <a href={`/characters/${parseInt(page)-1}`} class="btn btn-primary text-light btn-outline-dark btn-lg m-2">Previous</a>
   }
 
   if (next) {
