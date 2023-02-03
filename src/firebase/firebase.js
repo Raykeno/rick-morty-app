@@ -22,12 +22,7 @@ import {
   signOut,
 } from 'firebase/auth';
 const fbConfig = {
-    apiKey: "AIzaSyBfN2Vin9GflVGi3bWD3IXf5cAcf6_7nJ8",
-    authDomain: "react-rick-morty-b0b48.firebaseapp.com",
-    projectId: "react-rick-morty-b0b48",
-    storageBucket: "react-rick-morty-b0b48.appspot.com",
-    messagingSenderId: "771941146950",
-    appId: "1:771941146950:web:e4c24dbf9d018683008547"
+ // DELETED so they don't get my firebase stuff
 };
   
 const app = initializeApp(fbConfig);
